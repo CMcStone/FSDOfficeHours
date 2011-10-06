@@ -1,0 +1,4 @@
+<layers>
+    <layer name="Products.OfficeHoursExtender"
+           interface="Products.OfficeHoursExtender.interfaces.IOfficeHoursExtenderLayer" />
+</layers>

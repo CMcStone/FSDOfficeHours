@@ -1,0 +1,5 @@
+<layers>
+    <layer name="Products.OfficeHoursExtender"
+           purge="true"
+           interface="Products.OfficeHoursExtender.interfaces.IOfficeHoursExtenderLayer" />
+</layers>
