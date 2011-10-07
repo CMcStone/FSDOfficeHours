@@ -9,7 +9,7 @@ from Products.OfficeHoursExtender import OfficeHoursExtenderMF as _
 from Products.OfficeHoursExtender.interfaces import IOfficeHoursExtenderLayer
 
 # Any field you tack on must have ExtensionField as its first subclass:
-class _StringExtensionField(ExtensionField, StringField):
+class _LinesExtensionField(ExtensionField, LinesField):
     pass
 
 
@@ -24,7 +24,7 @@ class PersonExtender(object):
     layer = IOfficeHoursExtenderLayer
     
     _fields = [
-            _LinesField('officeHours',
+            _LinesExtensionField('officeHours',
                 required=False,
                 searchable=True,
                 schemata="Office Hours",
