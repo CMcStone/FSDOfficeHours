@@ -24,11 +24,11 @@ class PersonExtender(object):
     layer = IOfficeHoursExtenderLayer
     
     _fields = [
-            _StringExtensionField('officeHours',
+            _LinesField('officeHours',
                 required=False,
                 searchable=True,
                 schemata="Office Hours",
-                widget=StringWidget(
+                widget=LinesWidget(
                     label=_(u"FSDOfficeHoursExtender_label_OfficeHours", default=u"Office Hours"),
                     description=_(u"FSDOfficeHoursExtender_description_OfficeHours", default=u"Demo field added by the OfficeHoursExtender product."),
                     i18n_domain='FSDOfficeHoursExtender',

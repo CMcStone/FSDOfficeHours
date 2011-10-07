@@ -7,7 +7,7 @@
     name="default"
     title="OfficeHoursExtender"
     directory="profiles/default"
-    description="Adds a Mobile Phone field to Faculty/Staff Directory's Person type."
+    description="Adds an Office Hours field to Faculty/Staff Directory's Person type."
     provides="Products.GenericSetup.interfaces.EXTENSION"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     />
@@ -16,7 +16,7 @@
     name="uninstall"
     title="OfficeHoursExtender Uninstall"
     directory="profiles/uninstall"
-    description="Removes the Mobile Phone field from the Person type."
+    description="Removes the Office Hours field from the Person type."
     provides="Products.GenericSetup.interfaces.EXTENSION"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     />
