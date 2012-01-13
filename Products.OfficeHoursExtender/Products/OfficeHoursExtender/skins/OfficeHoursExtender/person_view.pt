@@ -74,7 +74,7 @@
             <span class="value" tal:content="context/getOfficePhone"><tal:comment replace="nothing">[office phone number]</tal:comment></span>
           </span>
  
-           <div class="visualClear"><!-- --></div>
+          <div class="visualClear"><!-- --></div>
 		 
            <div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone">
 			 <h3 i18n:translate="FacultyStaffDirectory_label_officeHours">Office Hours:</h3>

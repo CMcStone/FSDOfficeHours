@@ -30,7 +30,7 @@ class PersonExtender(object):
                 schemata="Office Hours",
                 widget=LinesWidget(
                     label=_(u"FSDOfficeHoursExtender_label_OfficeHours", default=u"Office Hours"),
-                    description=_(u"FSDOfficeHoursExtender_description_OfficeHours", default=u"Demo field added by the OfficeHoursExtender product."),
+                    description=_(u"FSDOfficeHoursExtender_description_OfficeHours", default=u"One entry per line, aka Tuesday 8:00am - 10:00 am"),
                     i18n_domain='FSDOfficeHoursExtender',
                 )
             )
