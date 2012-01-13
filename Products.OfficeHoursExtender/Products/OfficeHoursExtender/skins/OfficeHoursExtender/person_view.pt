@@ -74,13 +74,17 @@
             <span class="value" tal:content="context/getOfficePhone"><tal:comment replace="nothing">[office phone number]</tal:comment></span>
           </span>
  
-           
+           <div class="visualClear"><!-- --></div>
+		 
            <div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone">
-			 <span class="type" i18n:translate="FacultyStaffDirectory_label_officeHours">Office Hours</span>:
-             <span class="title" tal:repeat="officeHours python:context.get('officeHours')"
-             tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></span>
+			 <h3 i18n:translate="FacultyStaffDirectory_label_officeHours">Office Hours:</h3>
+			 <ul>
+             <li class="title" tal:repeat="officeHours python:context.get('officeHours')"
+             tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></li>
+             </ul>
            </div>
          
+         <div class="visualClear"><!-- --></div>
 
           <div tal:condition="python: showExpired and context.getWebsites()"
                class="websites">
