@@ -1,0 +1,3 @@
+setuptools
+archetypes.schemaextender>=1.0
+Products.FacultyStaffDirectory

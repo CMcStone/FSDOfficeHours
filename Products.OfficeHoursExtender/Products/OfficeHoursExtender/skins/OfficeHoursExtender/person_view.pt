@@ -51,7 +51,7 @@
           <p tal:condition="python:not showExpired"
              i18n:translate="FacultyStaffDirectory_expired_notice">
             This person is no longer associated with the organization.
-          </p>
+          </p><br />
 
           <span tal:condition="showExpired"
                 class="adr">
@@ -73,10 +73,14 @@
             <span class="type" i18n:translate="FacultyStaffDirectory_label_officePhone">Office Phone</span>:
             <span class="value" tal:content="context/getOfficePhone"><tal:comment replace="nothing">[office phone number]</tal:comment></span>
           </span>
-          <div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone">
-			<span class="type" i18n:translate="">Office Hours</span>:
-            <span class="value" tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></span>
-          </div>
+ 
+           
+           <div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone">
+			 <span class="type" i18n:translate="FacultyStaffDirectory_label_officeHours">Office Hours</span>:
+             <span class="title" tal:repeat="officeHours python:context.get('officeHours')"
+             tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></span>
+           </div>
+         
 
           <div tal:condition="python: showExpired and context.getWebsites()"
                class="websites">

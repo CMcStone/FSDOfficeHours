@@ -1,0 +1,14 @@
+setup.cfg
+setup.py
+Products/__init__.py
+Products.OfficeHoursExtender.egg-info/PKG-INFO
+Products.OfficeHoursExtender.egg-info/SOURCES.txt
+Products.OfficeHoursExtender.egg-info/dependency_links.txt
+Products.OfficeHoursExtender.egg-info/entry_points.txt
+Products.OfficeHoursExtender.egg-info/namespace_packages.txt
+Products.OfficeHoursExtender.egg-info/not-zip-safe
+Products.OfficeHoursExtender.egg-info/requires.txt
+Products.OfficeHoursExtender.egg-info/top_level.txt
+Products/OfficeHoursExtender/__init__.py
+Products/OfficeHoursExtender/interfaces.py
+Products/OfficeHoursExtender/person.py

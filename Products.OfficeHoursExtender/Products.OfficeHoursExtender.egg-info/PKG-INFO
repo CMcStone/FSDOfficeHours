@@ -1,0 +1,13 @@
+Metadata-Version: 1.0
+Name: Products.OfficeHoursExtender
+Version: 4.0.1dev
+Summary: Adds a Mobile Phone field to FacultyStaffDirectory's Person objects
+Home-page: UNKNOWN
+Author: WebLion
+Author-email: support@weblion.psu.edu
+License: GPL
+Description: UNKNOWN
+Keywords: plone zope facultystaffdirectory
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
