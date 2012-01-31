@@ -75,13 +75,15 @@
           </span>
  
           <div class="visualClear"><!-- --></div>
-		 
+          	 
            <div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone">
-			 <h3 i18n:translate="FacultyStaffDirectory_label_officeHours">Office Hours:</h3>
+	        <div tal:define="quarter python:context.get('quarter')" tal:condition="quarter" class="tel officePhone">
+			 <h3 i18n:translate="FacultyStaffDirectory_label_officeHours">Office Hours for <span class="value" tal:content="quarter"> </span>:</h3>
 			 <ul>
              <li class="title" tal:repeat="officeHours python:context.get('officeHours')"
              tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></li>
              </ul>
+           </div>
            </div>
          
          <div class="visualClear"><!-- --></div>

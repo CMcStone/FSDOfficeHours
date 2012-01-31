@@ -11,10 +11,12 @@ from Products.OfficeHoursExtender.interfaces import IOfficeHoursExtenderLayer
 # Any field you tack on must have ExtensionField as its first subclass:
 class _LinesExtensionField(ExtensionField, LinesField):
     pass
+class _StringExtensionField(ExtensionField, StringField):
+	pass
 
 
 class PersonExtender(object):
-    """Adapter that adds a Mobile Phone field to Person.
+    """Adapter that adds a quarter and office hours fields to Person.
     
     You could also change or delete existing fields (though you might violate assumptions made in other code). To do that, implement ISchemaModifier instead of ISchemaExtender.
     """
@@ -24,6 +26,18 @@ class PersonExtender(object):
     layer = IOfficeHoursExtenderLayer
     
     _fields = [
+
+           _StringExtensionField('quarter',
+                required=False,
+                searchable=True,
+                schemata="Office Hours",
+                widget=StringWidget(
+                    label=_(u"FSDOfficeHoursExtender_label_Quarter", default=u"Quarter"),
+                    description=_(u"FSDOfficeHoursExtender_description_Quarter", default=u"Quarter and year, aka Fall 2012"),
+                    i18n_domain='FSDOfficeHoursExtender',
+                 ),
+              ),
+
             _LinesExtensionField('officeHours',
                 required=False,
                 searchable=True,
@@ -34,6 +48,7 @@ class PersonExtender(object):
                     i18n_domain='FSDOfficeHoursExtender',
                 )
             )
+          
         ]
     
     def __init__(self, context):
