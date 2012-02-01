@@ -65,22 +65,24 @@
                                     <ul tal:condition="person/getJobTitles" class="jobTitle">
                                         <li tal:repeat="jobTitle person/getJobTitles" 
                                             tal:content="jobTitle" />
-                                    </ul>
+                                            </ul>
+                                            <div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone" />
+                                    	        <div tal:define="quarter python:context.get('quarter')" tal:condition="quarter" class="tel officePhone" />
+                                    			 Office Hours for <span class="value" tal:content="person/quarter"> </span>:
+                                    	         <ul>
+                                                     <li class="title" tal:repeat="officeHours person/officeHours"
+                                                      tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></li>
+                                                  </ul>
+                                               
+    								          
+                                    
                                     <div tal:condition="person/getOfficePhone"
                                          tal:content="person/getOfficePhone"
                                          class="officePhone"/>
                                     <div tal:condition="person/getEmail" 
                                          tal:content="structure python:person.spamProtectFSD(person.getEmail())" 
                                          class="emailAddress"/>
-                                     	<div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone">
-									        <div tal:define="quarter python:context.get('quarter')" tal:condition="quarter" class="tel officePhone">
-											 <h3 i18n:translate="FacultyStaffDirectory_label_officeHours">Office Hours for <span class="value" tal:content="quarter"> </span>:</h3>
-											 <ul>
-								             <li class="title" tal:repeat="officeHours python:context.get('officeHours')"
-								             tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></li>
-								             </ul>
-								           </div>
-								           </div>
+                                     	
                                     <div class="moreInfo">
                                         <a tal:attributes="href person/absolute_url"
                                            i18n:translate="FacultyStaffDirectory_moreAbout">
