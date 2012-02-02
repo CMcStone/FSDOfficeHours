@@ -69,13 +69,9 @@
                                             <div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone" />
                                     	        <div tal:define="quarter python:context.get('quarter')" tal:condition="quarter" class="tel officePhone" />
                                     			 Office Hours for <span class="value" tal:content="person/quarter"> </span>:
-                                    	         
-                                                     <span class="title" tal:repeat="officeHours person/officeHours"
+                                    	         <span class="title" tal:repeat="officeHours person/officeHours"
                                                        tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></span>
-                                                
-                                               
-    								          
-                                    
+                                                                                
                                     <div tal:condition="person/getOfficePhone"
                                          tal:content="person/getOfficePhone"
                                          class="officePhone"/>
