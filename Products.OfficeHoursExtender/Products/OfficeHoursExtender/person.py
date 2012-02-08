@@ -27,6 +27,17 @@ class PersonExtender(object):
     
     _fields = [
 
+          _StringExtensionField('officeRoom',
+	                required=False,
+	                searchable=True,
+	                schemata="Contact Information",
+	                widget=StringWidget(
+	                    label=_(u"FSDOfficeHoursExtender_label_officeRoom", default=u"Office Location"),
+	                    description=_(u"FSDOfficeHoursExtender_description_officeRoom", default=u"Office number and building, like 120 Social Science"),
+	                    i18n_domain='FSDOfficeHoursExtender',
+	                 ),
+	              ),
+	
            _StringExtensionField('quarter',
                 required=False,
                 searchable=True,
@@ -38,6 +49,7 @@ class PersonExtender(object):
                  ),
               ),
 
+           	
             _LinesExtensionField('officeHours',
                 required=False,
                 searchable=True,
