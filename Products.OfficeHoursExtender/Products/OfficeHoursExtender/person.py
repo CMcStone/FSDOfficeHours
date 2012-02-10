@@ -1,5 +1,5 @@
 from archetypes.schemaextender.field import ExtensionField
-from archetypes.schemaextender.interfaces import ISchemaExtender, IBrowserLayerAwareExtender
+from archetypes.schemaextender.interfaces import ISchemaExtender, IBrowserLayerAwareExtender, IOrderableSchemaExtender
 from Products.Archetypes.atapi import *
 from zope.interface import implements, Interface
 from zope.component import adapts, provideAdapter
@@ -21,7 +21,7 @@ class PersonExtender(object):
     You could also change or delete existing fields (though you might violate assumptions made in other code). To do that, implement ISchemaModifier instead of ISchemaExtender.
     """
     adapts(IPerson)
-    implements(ISchemaExtender, IBrowserLayerAwareExtender)
+    implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
 
     layer = IOfficeHoursExtenderLayer
     
@@ -68,6 +68,20 @@ class PersonExtender(object):
     
     def getFields(self):
         return self._fields
+
+   		
+    def getOrder(self, order):
+		# get the Contact Information schema
+		ci = order['Contact Information']
+
+		# find screenname
+		aol = ci.index('officeRoom')
+
+	   # place screenname at the very top of Contact Information
+		ci.remove('officeRoom')
+		ci.insert(1, 'officeRoom')
+
+		return order
 
 
 # # Optional stuff to tack on more methods to Person (after you adapt it to IYuppie, anyway):

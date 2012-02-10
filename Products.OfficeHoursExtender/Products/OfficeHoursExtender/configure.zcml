@@ -25,6 +25,6 @@
 
   <include package="archetypes.schemaextender" />
   <adapter factory=".person.PersonExtender"
-           provides="archetypes.schemaextender.interfaces.ISchemaExtender" />
+           provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender" />
 
 </configure>
