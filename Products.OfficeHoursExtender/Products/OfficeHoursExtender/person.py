@@ -74,10 +74,10 @@ class PersonExtender(object):
 		# get the Contact Information schema
 		ci = order['Contact Information']
 
-		# find screenname
-		aol = ci.index('officeRoom')
+		# find office and room
+		ofc = ci.index('officeRoom')
 
-	   # place screenname at the very top of Contact Information
+	   # place Office and room after email in Contact Information
 		ci.remove('officeRoom')
 		ci.insert(1, 'officeRoom')
 
