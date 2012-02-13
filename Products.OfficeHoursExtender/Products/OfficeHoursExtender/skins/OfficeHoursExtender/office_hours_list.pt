@@ -47,12 +47,11 @@
                                                     <td class="personName">
                                                         <a href="" tal:attributes="href person/absolute_url" tal:content="string:${person/getLastName}, ${person/getFirstName}" />
                                                     </td>
-                                                    <td tal:content="person/getEmail" class="Email"/>
+                                                    <td tal:content="person/getEmail" class="Email"></td>
                                                     <td tal:define="officeRoom python:context.get('officeRoom')" class="title"
-                                                              tal:content="person/officeRoom" />
-									                <td><div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone" />
-													    <span class="title" tal:repeat="officeHours person/officeHours"
-														tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></span>
+                                                              tal:content="person/officeRoom"></td>
+									                <td tal:define="officeHours python:context.get('officeHours')" class="title">
+													    <span tal:repeat="officeHours person/officeHours" tal:content="officeHours" />
 										            </td>
                                                 </metal:block>
                                             </tr>
