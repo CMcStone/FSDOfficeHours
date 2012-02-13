@@ -66,7 +66,8 @@
                                         <li tal:repeat="jobTitle person/getJobTitles" 
                                             tal:content="jobTitle" />
                                             </ul>
-                                            
+                                            <div tal:define="officeRoom python:context.get('officeRoom')" tal:condition="person/officeRoom"
+                                                tal:content="person/officeRoom" class="officeRoom" /> 
                                             <div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="officeHours" />
                                     	        <div tal:define="quarter python:context.get('quarter')" tal:condition="quarter" class="quarter">
                                                  </div>
