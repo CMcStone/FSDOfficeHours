@@ -16,7 +16,7 @@
                                     <thead>
                                         <metal:block define-slot="classification_header" tal:condition="nocall:classificationExists">
                                             <tr>
-                                                <th colspan="3" class="classification">
+                                                <th colspan="4" class="classification">
                                                     <metal:block define-macro="classification_header_link">
                                                         <a tal:define="normalizeString nocall:context/@@plone/normalizeString" tal:attributes="name python:normalizeString(classificationContext.Title()); href python:'%s?classification=%s' % (here.absolute_url(), classification.id)" tal:content="classificationContext/Title"><tal:comment replace="nothing">[classification]</tal:comment></a>
                                                     </metal:block>
@@ -33,6 +33,9 @@
                                                 <th class="column" i18n:translate="FacultyStaffDirectory_email">
                                                     Email
                                                 </th>
+                                                <th class="column" i18n:translate="FacultyStaffDirectory_officeroom">
+                                                    Office
+                                                 </th>
                                                 <th class="column" i18n:translate="FacultyStaffDirectory_officehours">
                                                     Office Hours
                                                 </th>
@@ -44,10 +47,13 @@
                                                     <td class="personName">
                                                         <a href="" tal:attributes="href person/absolute_url" tal:content="string:${person/getLastName}, ${person/getFirstName}" />
                                                     </td>
-                                                    <td tal:content="person/getEmail" class="Email" />
-                                                    <td><div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone" />
-		                                                    <span class="title" tal:repeat="officeHours person/officeHours"
-		                                                       tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></span></td>
+                                                    <td tal:content="person/getEmail" class="Email"/>
+                                                    <td tal:define="officeRoom python:context.get('officeRoom')" class="title"
+                                                              tal:content="person/officeRoom" />
+									                <td><div tal:define="officeHours python:context.get('officeHours')" tal:condition="officeHours" class="tel officePhone" />
+													    <span class="title" tal:repeat="officeHours person/officeHours"
+														tal:content="officeHours"><tal:comment replace="nothing">[Office Hours]</tal:comment></span>
+										            </td>
                                                 </metal:block>
                                             </tr>
                                         </tal:block>
