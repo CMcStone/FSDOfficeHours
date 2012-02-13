@@ -60,6 +60,8 @@
 
               <div tal:condition="showExpired"
                     class="adr">
+                 <div tal:define="officeRoom python:context.get('officeRoom')" tal:condition="officeRoom" class="officeRoom">
+                 <span tal:content="officeRoom"></span></div>
                 <span class="street-address" tal:content="structure python:context.getOfficeAddress().replace('\n', '<br />')" /><br />
                 <span class="locality" tal:content="context/getOfficeCity" ><tal:comment replace="nothing">[office city]</tal:comment></span>
                 <tal:block tal:condition="context/getOfficeState">, </tal:block>
