@@ -18,7 +18,9 @@
                                             <tr>
                                                 <th colspan="4" class="classification">
                                                     <metal:block define-macro="classification_header_link">
-                                                        <a tal:define="normalizeString nocall:context/@@plone/normalizeString" tal:attributes="name python:normalizeString(classificationContext.Title()); href python:'%s?classification=%s' % (here.absolute_url(), classification.id)" tal:content="classificationContext/Title"><tal:comment replace="nothing">[classification]</tal:comment>Office Hours</a>
+                                                       <span tal:define="classification.id faculty"
+                                                        <a tal:define="normalizeString nocall:context/@@plone/normalizeString" tal:attributes="name python:normalizeString(classificationContext.Title()); href python:'%s?classification=%s' % (here.absolute_url(), classification.id)" tal:content="classificationContext/Title"><tal:comment replace="nothing">[classification]</tal:comment></a>
+                                                    </span>
                                                     </metal:block>
                                                 </th>
                                             </tr>
