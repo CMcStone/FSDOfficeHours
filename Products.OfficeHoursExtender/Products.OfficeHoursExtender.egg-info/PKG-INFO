@@ -1,6 +1,6 @@
-Metadata-Version: 1.0
+Metadata-Version: 1.1
 Name: Products.OfficeHoursExtender
-Version: 4.0.1dev
+Version: 4.1dev
 Summary: Adds a Mobile Phone field to FacultyStaffDirectory's Person objects
 Home-page: UNKNOWN
 Author: WebLion

@@ -52,6 +52,7 @@
                                     <a href=""
                                        tal:attributes="href person/absolute_url">
                                         <tal:block condition="person/image_thumb|nothing">
+                                        <!-- width comes from ui display settings on Directory -->
                                             <img src="" alt=""
                                                  tal:replace="structure python:person.getScaledImageByWidth(width)" />
                                         </tal:block>
