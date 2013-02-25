@@ -96,16 +96,19 @@
           
           
            
-               <div tal:condition="python: context.get('officeHours') and context.get('quarter')"
-                <span tal:define="officeHours python:context.get('officeHours')" class="quarter" />
-                  <span tal:define="quarter python:context.get('quarter')" class="quarter" />
-              	 <h3 i18n:translate="FacultyStaffDirectory_label_officeHours">Office Hours for <span class="value" tal:content="context/quarter" /> :</h3>
-              	 <ul>
-                   <li class="officeHours" tal:repeat="officeHours context/officeHours"
-                   tal:content="officeHours"></li>
-                   </ul>
-                 
-                 </div>
+               <span tal:define="officeHours python:context.get('officeHours')" class="quarter" />
+			   <span tal:define="quarter python:context.get('quarter')" class="quarter" />
+			    <div tal:condition="context/officeHours"; "context/quarter)">
+			              <h3 i18n:translate="FacultyStaffDirectory_label_officeHours">Office Hours for <span class="value" tal:content="context/quarter" /> :</h3>
+			              	 <ul>
+			                   <li class="officeHours" tal:repeat="officeHours context/officeHours"
+			                   tal:content="officeHours"></li>
+			                 </ul>
+
+			    </div>
+		 </div>
+
+			
                  
 
             <div class="visualClear"><!-- --></div>
