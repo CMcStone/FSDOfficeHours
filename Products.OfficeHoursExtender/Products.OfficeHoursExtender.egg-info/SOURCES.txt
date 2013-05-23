@@ -12,3 +12,4 @@ Products.OfficeHoursExtender.egg-info/top_level.txt
 Products/OfficeHoursExtender/__init__.py
 Products/OfficeHoursExtender/interfaces.py
 Products/OfficeHoursExtender/person.py
+Products/OfficeHoursExtender/secure.py
