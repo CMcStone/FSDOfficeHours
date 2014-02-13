@@ -1,0 +1,120 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+	  lang="en"
+	  metal:use-macro="here/department_view/macros/master"
+	  i18n:domain="FacultyStaffDirectory">
+	<body>
+		<metal:block fill-slot="listing_section">
+			<div class="tabularView">
+                <table class="listing">
+                    <tbody>        
+                        <metal:block use-macro="here/department_view/macros/list_classifications">
+                            <metal:block fill-slot="single_classification">
+                                <tal:block metal:use-macro="classification/classification_tabular_view/macros/list_people">
+                                    <!--tal:block metal:fill-slot="table_headings">
+                                        <tr>
+                                            <th class="column" i18n:translate="FacultyStaffDirectory_headshot">
+                                               Headshot
+                                             </th>
+                                            <th class="column" i18n:translate="FacultyStaffDirectory_name">
+                                                Name
+                                            </th>
+                                            <th class="column" i18n:translate="FacultyStaffDirectory_phone">
+                                                Phone
+                                            </th>
+                                            <th class="column" i18n:translate="FacultyStaffDirectory_email">
+                                                Email
+                                            </th>
+                                            <th i18n:translate="FacultyStaffDirectory_researchTopic">
+                                                Research Topic
+                                            </th>
+                                        </tr>
+                                    </tal:block-->
+                                    <tal:block metal:fill-slot="table_cells">
+                                        <td class="headshot">
+                                           <div class="cell width-3 position-0" >
+                                            
+                                               <a href=""
+                                                     tal:attributes="href person/absolute_url">
+                                                      <tal:block condition="person/image_thumb|nothing">
+                                                        <img src="" alt=""
+                                                           tal:replace="structure python:person.getScaledImageByWidth(width)" style="display:block"/>
+                                                        </tal:block>
+                                                  </a>
+
+                                             
+	                                        </div>
+	                                       </td>
+                                        <td class="personDetails">
+                                                        <a href="" tal:attributes="href person/absolute_url" tal:content="string:${person/getLastName}, ${person/getFirstName}" />
+                                                           <ul tal:condition="person/getJobTitles" class="jobTitle">
+                                                            <li tal:repeat="jobTitle person/getJobTitles"
+                                                               tal:content="jobTitle" />
+                                                            </ul>
+                                                             
+                                                    </td>
+                                        <td class="personContact">
+                                                    <span tal:condition="person/getEmail" tal:replace="structure python:person.spamProtectFSD(person.getEmail())" /><br>
+                                                    <span tal:content="person/getOfficePhone" />
+                                                    <div tal:define="officeRoom python:context.get('officeRoom')" class="title"
+                                                      tal:content="person/officeRoom"> </div>
+                                                    <div tal:define="officeHours python:context.get('officeHours')" class="title">
+                                                       <span tal:repeat="officeHours person/officeHours" tal:content="officeHours" /></div>
+                                                    
+                                                     
+                                                    
+                                                     <li tal:repeat="website person/getWebsites">
+                                                      <a class='urlsmall' href=""
+                                                      tal:attributes="href website"
+                                                      tal:content="website" />
+                                                      </li>
+                                            
+                                                          
+                                        </td>
+                                          <td>
+
+
+
+
+
+                                           <div class="specialties"
+                 tal:define="specialtyTuples person/getSpecialties"
+                 tal:condition="python: specialtyTuples and not context.id == 'orange-cluster-staff'">
+              <!--h4 i18n:translate="FacultyStaffDirectory_label_researchInterests">Research Interests:</h4-->
+              <dl>
+                <tal:block tal:repeat="eachSpecialtyTuple specialtyTuples">
+                  <tal:block tal:define="specialtyBrain python:eachSpecialtyTuple[0];
+                                         personSpecialtyData python:eachSpecialtyTuple[1].getContentObject();">
+                    <dt>
+                      <a tal:attributes="href specialtyBrain/getURL">
+                        <span tal:content="specialtyBrain/Title" />:
+                      </a>
+                    </dt>
+                    <dd tal:define="researchTopic personSpecialtyData/getResearchTopic">
+                      <tal:block tal:condition="researchTopic"
+                                 tal:replace="structure researchTopic">
+                      </tal:block>
+                      <span tal:condition="python:checkPermission('Modify portal content', context)"
+                            class="discreet">[
+                        <a tal:attributes="href python:'%s/edit' % personSpecialtyData.absolute_url()">
+                          <tal:block tal:condition="researchTopic"
+                                     i18n:translate="FacultyStaffDirectory_editResearchTopic">Edit research topic</tal:block>
+                          <tal:block tal:condition="not:researchTopic"
+                                     i18n:translate="FacultyStaffDirectory_assignResearchTopic">Assign a research topic</tal:block>
+                        </a>
+                      ]</span>
+                    </dd>
+                  </tal:block>
+                </tal:block>
+              </dl>
+            </div>
+</td>
+                                   </tal:block>
+                                </tal:block>
+                            </metal:block>
+                        </metal:block>
+                    </tbody>
+                 </table>
+			</div>
+		</metal:block>
+	</body>
+</html>
